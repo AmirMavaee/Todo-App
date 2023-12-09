@@ -10,9 +10,12 @@ function SignUpPage() {
   const router = useRouter();
 
   useEffect(() => {
-    if (status === "authenticated") {
-      setTimeout(router.replace("/") , 2000)
+    const isLogin = async ()=>{
+      if (status === "authenticated") {
+        setTimeout(await router.replace("/") , 2000)
+      }
     }
+    isLogin();
   }, [status]);
 
   const signupHandler = async () => {
@@ -24,7 +27,7 @@ function SignUpPage() {
 
     const data = await res.json();
     if (data.status === "success") {
-      setTimeout(router.push("/SignIn") , 2000)
+      setTimeout(await router.push("/SignIn") , 2000)
     }
   };
 

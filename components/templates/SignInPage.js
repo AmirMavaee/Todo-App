@@ -10,9 +10,12 @@ function SignInPage() {
   const {status} = useSession();
 
   useEffect(()=>{
-    if(status === "authenticated"){
-      setTimeout(router.replace("/") , 2000)
+    const isLogin = async ()=>{
+      if(status === "authenticated"){
+        setTimeout(await router.replace("/") , 2000)
+      }
     }
+    isLogin()
   },[status])
 
   const signinHandler =  async () => {
@@ -20,7 +23,7 @@ function SignInPage() {
         email , password , redirect:false
     })
     if(!res.error){
-      setTimeout(router.push("/") , 2000)
+      setTimeout(await router.push("/") , 2000)
     }
   };
   return (
