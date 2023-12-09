@@ -11,7 +11,7 @@ function SignInPage() {
 
   useEffect(()=>{
     if(status === "authenticated"){
-        router.replace("/")
+      setTimeout(router.replace("/") , 2000)
     }
   },[status])
 
@@ -20,7 +20,7 @@ function SignInPage() {
         email , password , redirect:false
     })
     if(!res.error){
-        router.push("/")
+      setTimeout(router.push("/") , 2000)
     }
   };
   return (
