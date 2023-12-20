@@ -12,7 +12,7 @@ function SignUpPage() {
   useEffect(() => {
     const isLogin = async ()=>{
       if (status === "authenticated") {
-        setTimeout(await router.replace("/") , 2000)
+        router.replace("/")
       }
     }
     isLogin();
@@ -27,7 +27,7 @@ function SignUpPage() {
 
     const data = await res.json();
     if (data.status === "success") {
-      setTimeout(await router.push("/SignIn") , 2000)
+      router.push("/SignIn")
     }
   };
 
